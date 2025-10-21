@@ -1,92 +1,109 @@
 import "./App.css";
-import type { ReactNode } from "react";
-
-function Section({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <section className="space-y-4">
-      <h2 className="text-xs font-semibold tracking-wider text-gray-500">{title}</h2>
-      <div className="rounded-md border border-gray-200 bg-white p-4">{children}</div>
-    </section>
-  );
-}
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* LATIHAN 1 — Navbar dengan Flexbox */}
-        <Section title="LATIHAN 1">
-          <nav className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="font-bold">MyLogo</div>
-            <ul className="flex flex-col gap-2 md:flex-row md:gap-6 text-sm">
-              <li>
-                <a className="text-gray-700 hover:text-blue-600 active:text-blue-800" href="#">Home</a>
-              </li>
-              <li>
-                <a className="text-gray-700 hover:text-blue-600 active:text-blue-800" href="#">About</a>
-              </li>
-              <li>
-                <a className="text-gray-700 hover:text-blue-600 active:text-blue-800" href="#">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </Section>
+    <main className="min-h-screen bg-slate-50 flex justify-center items-center p-4 font-sans">
+      {/* Container Start */}
+      <div className="w-full max-w-sm">
 
-        {/* LATIHAN 2 — Grid Galeri Gambar */}
-        <Section title="LATIHAN 2">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="aspect-square rounded-md bg-gray-200 grid place-items-center text-gray-500">
-                200 × 200
-              </div>
-            ))}
-          </div>
-        </Section>
+        {/* Logo Start */}
+        <div className="flex justify-center items-baseline font-poppins tracking-wider text-teal-600 text-4xl mb-12">
+          <span className="font-bold">FINE</span>
+          <span className="font-normal">bank</span>
+          <span className="font-bold">.IO</span>
+        </div>
 
-        {/* LATIHAN 3 — Pricing Table */}
-        <Section title="LATIHAN 3">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.25fr_1fr] gap-4">
-            <div className="rounded-md border p-4 text-center">
-              <div className="text-sm">Basic</div>
-              <div className="text-xs text-gray-500">Rp 50.000</div>
+        {/* Form Section */}
+        <div>
+          <form action="#" onSubmit={(e) => e.preventDefault()}>
+            
+            {/* Email Input Field */}
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                className="py-3 px-4 text-sm rounded-md w-full bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                placeholder="hello@example.com"
+                name="email"
+                id="email"
+              />
             </div>
-            <div className="rounded-md border p-4 text-center bg-blue-100 border-blue-300 md:scale-[1.04]">
-              <div className="text-sm font-medium">Pro</div>
-              <div className="text-xs text-gray-700">Rp 100.000</div>
-            </div>
-            <div className="rounded-md border p-4 text-center">
-              <div className="text-sm">Premium</div>
-              <div className="text-xs text-gray-500">Rp 200.000</div>
-            </div>
-          </div>
-        </Section>
 
-        {/* LATIHAN 4 — Layout Dashboard Sederhana */}
-        <Section title="LATIHAN 4">
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 rounded-md bg-gray-300 p-4">Header</div>
-            <div className="col-span-12 md:col-span-3 rounded-md bg-gray-300 p-4 min-h-40">Sidebar</div>
-            <div className="col-span-12 md:col-span-9 rounded-md bg-gray-300 p-4 min-h-40">Content</div>
-            <div className="col-span-12 rounded-md bg-gray-300 p-4">Footer</div>
-          </div>
-        </Section>
-
-        {/* LATIHAN 5 — Card Product dengan Flexbox */}
-        <Section title="LATIHAN 5">
-          <div className="rounded-md border p-4">
-            <div className="flex flex-col md:flex-row items-start gap-4">
-              <div className="w-20 h-20 shrink-0 rounded-md bg-gray-200 grid place-items-center text-[10px] text-gray-500">
-                80 × 80
-              </div>
-              <div>
-                <div className="font-medium">Nama Produk</div>
-                <p className="text-xs text-gray-600">Deskripsi produk singkat…</p>
-              </div>
+            {/* Password Input Field */}
+            <div className="mb-5">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                className="py-3 px-4 text-sm rounded-md w-full bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                placeholder="************"
+                name="password"
+                id="password"
+              />
             </div>
-          </div>
-        </Section>
+
+            {/* "Keep me signed in" Checkbox */}
+            <div className="flex items-center mb-6">
+              <input
+                type="checkbox"
+                className="h-4 w-4 accent-teal-600 border-gray-300 rounded focus:ring-teal-500"
+                name="status"
+                id="status"
+              />
+              <label htmlFor="status" className="text-sm text-gray-700 ml-2">
+                Keep me signed in
+              </label>
+            </div>
+
+            {/* Login Button */}
+            <button
+              className="h-12 w-full rounded-md text-sm font-semibold bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+              type="submit"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+
+        {/* Divider "or sign in with" */}
+        <div className="my-8 flex items-center">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="flex-shrink mx-4 text-gray-500 text-xs">or sign in with</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+
+        {/* Sign in with Google Button */}
+        <div className="mb-8">
+          <button
+            className="h-12 flex items-center justify-center rounded-md text-sm w-full bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+            type="button"
+          >
+            <svg
+              className="h-5 w-5 mr-3"
+              xmlns="http://www.w.org/2000/svg"
+              viewBox="0 0 48 48"
+            >
+              <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+              <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+              <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+              <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C41.38,36.162,44,30.638,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+        </div>
+
+        {/* Create an account link */}
+        <div className="text-center">
+          <a href="#" className="text-teal-600 text-sm font-bold hover:underline">
+            Create an account
+          </a>
+        </div>
+        
       </div>
-    </div>
+    </main>
   );
 }
 
