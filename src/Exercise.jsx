@@ -25,4 +25,4 @@ function Exercise() {
   );
 }
 
-export default Exercise;\
+export default Exercise;
