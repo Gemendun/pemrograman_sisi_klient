@@ -1,46 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function PostCard(props) {
-  
-  const { title, body } = props;
-  
- ``
-  const [clicked, setClicked] = useState(false);
+function PostCard({ id, userId, title, body }) {
+  const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <div 
-      className={`
-        bg-white p-6 rounded-lg shadow 
-        transition-all duration-300 ease-in-out
-        flex flex-col h-full 
-        
-        /* Soal 02: Efek Hover (pseudoclass) */
-        hover:scale-105 hover:border hover:border-gray-300 hover:bg-pink-100
-      `}
+    <div
+      className="
+      bg-white p-4 rounded-lg shadow-md transition-all duration-300 
+      flex flex-col justify-between 
+      hover:scale-[1.03] hover:shadow-xl hover:border hover:border-black hover:bg-pink-50"
     >
-      
-      <h2 className="text-xl font-semibold text-gray-800 mb-2 capitalize">
-        {title}
-      </h2>
-      
-      
-      <p className="text-gray-600 mb-4 text-sm">
-        {body}
-      </p>
+      <div className="text-center">
+        <h2 className="text-sm font-bold mb-2 capitalize leading-tight">
+          {title}
+        </h2>
+        <p className="text-gray-700 text-xs">{body}</p>
+      </div>
 
-      
       <button
+        onClick={() => setIsClicked(true)}
+        disabled={isClicked}
         className={`
-          text-white p-2 rounded-md mt-auto
-          transition-colors duration-300
-          hover:brightness-110 
-          
-          /* Soal 02: Logika state untuk warna dan teks tombol */
-          ${clicked ? "bg-special-red2" : "bg-gray-01"} 
+          mt-4 w-full p-2 rounded-md text-white text-sm font-medium
+          transition-all duration-200
+          ${isClicked ? "bg-Special-Red2" : "bg-gray-500"}
+          hover:brightness-110
+          disabled:opacity-70
         `}
-        onClick={() => setClicked(true)}
       >
-        {clicked ? "Tombol sudah diklik" : "Silakan Klik"} 
+        {isClicked ? "Tombol sudah diklik" : "Silakan Klik"}
       </button>
     </div>
   );
