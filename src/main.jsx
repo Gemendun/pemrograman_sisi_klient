@@ -1,11 +1,13 @@
-// Lokasi: src/main.jsx
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Exercise from "./Exercise.jsx";
+import "./App.css"
+import Exercise from "../components/Exercise";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("Root element not found");
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <Exercise />
   </React.StrictMode>
