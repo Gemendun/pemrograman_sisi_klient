@@ -1,6 +1,5 @@
 import React from "react";
 import UserCard from "./UserCard";
-import postsData from "./postsData";
 
 function Exercise() {
   return (

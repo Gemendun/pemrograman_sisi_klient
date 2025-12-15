@@ -28,3 +28,14 @@ function UserCard(props) {
 
 export default UserCard;
 
+/*
+Catatan soal Langkah 5: Var / Let / Const
+
+Di semua kode ini, saya udah ngikutin best practice dari dokumennya. 
+Saya cuma pakai `const` (kayak const { name... } dan const [clicked... ]).
+
+Alasannya karea nilai-nilai ini (data props yg di-destrukturisasi 
+sama array dari useState) itu gak pernah saya assign ulang nilainya 
+secara langsung. Ini bikin kode saya jadi lebih aman dan ngurangin 
+risiko bug aneh-aneh.
+*/
